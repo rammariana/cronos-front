@@ -171,10 +171,33 @@ function App() {
   const userRegister = async (email, password, username) => {
     const endpoint = "user";
     const data = { email, password, username };
+
     try {
-      const response = await addData(endpoint, data);
-      setUser(response);
-      setUserId(response._id);
+      if (email && password) {
+        const response = await addData(endpoint, data);
+
+        setBtnDisable("disabled");
+        setMessage(
+          <div className="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        );
+
+        setUser(response);
+        setUserId(response._id);
+        setTimeout(() => {
+          setMessage("");
+        }, 1500);
+      } else {
+        setMessage(languageDictionary[selectLanguage].dashboard_empty_fields);
+        setTimeout(() => {
+          setMessage("");
+        }, 1500);
+        setBtnDisable("available");
+      }
     } catch (err) {
       console.log("Error");
       setMessage(`${err.status}, try later`);

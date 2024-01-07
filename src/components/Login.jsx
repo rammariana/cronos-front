@@ -85,7 +85,10 @@ function Login() {
             : dictionary[language].home_btn_register}
         </button>
       </form>
-      <span onClick={handleRegisterOrLogin} className="span-register-login">
+      <span
+        onClick={handleRegisterOrLogin}
+        className={`span-register-login ${disable}`}
+      >
         {loginRegister
           ? dictionary[language].home_span_noregistred
           : dictionary[language].home_span_registred}
