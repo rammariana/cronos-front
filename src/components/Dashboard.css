@@ -1,0 +1,254 @@
+.circle {
+  width: 3rem;
+  height: 3rem;
+  background-color: rgb(247, 246, 243);
+  border-radius: 50%;
+  padding-left: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1px;
+  color: rgb(45, 200, 239);
+}
+.dashboard {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 5rem;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.dashboard-priority {
+  text-align: center;
+}
+.header-week {
+  width: 100%;
+  border: thin solid white;
+  display: flex;
+  padding: 0 .5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon {
+  color: yellow;
+  font-size: 1.6rem;
+}
+.nav-tools {
+  width: 3rem;
+  height: 25rem;
+  position: sticky;
+  bottom: 0;
+  /*right: 1rem;*/
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.span-container {
+  width: auto;
+}
+.screen {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0;
+  position: relative;
+  display:flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.screen .message {
+  position:absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.5rem;
+  top: -2rem;
+  width: 70%;
+  height: 50%;
+  text-align: center;
+  background-color: white;
+}
+.size-md {
+  font-size: 1.9rem;
+}
+.stage-container {
+  padding: 0.8rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.3rem;
+}
+.plus {
+  font-size: 2rem !important;
+  /*position: absolute;*/
+  text-align: center;
+}
+.task-icons {
+  display: flex;
+  justify-content: space-around;
+  width: 5rem;
+}
+.task div p {
+  text-overflow: ellipsis;
+  width: 10rem;
+  overflow: hidden;
+  white-space:nowrap;
+  /*padding-left: 0.2rem;*/
+}
+.task-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+.task-container hr {
+  text-align: center;
+  align-self: center;
+  width: 80%;
+}
+.task-num {
+  padding-right: 0;
+  line-height: 14.2px;
+  text-align: center;
+}
+.tools {
+  width: 100%;
+  border: thin solid red;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.week-container {
+  width: 100%;
+  position: relative;
+  max-height: auto;
+  border: thin solid red;
+}
+.complete {
+  text-decoration:line-through;
+}
+.uncomplete {
+  text-decoration:none;
+}
+.week-container-icons {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 3.5rem;
+  border: thin solid red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.day-container {
+  background-color: white;
+  position: relative;
+  border: thin solid rgb(0, 255, 72);
+  border-radius: 0.5rem;
+  padding-top: .5rem;
+  width: 100%;
+  max-height: 18rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  transition: overflow 0.5s ease;
+}
+/* Open & close task-container*/
+.icon-open {
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  bottom: 20%;
+  z-index: 2;
+}
+.open{
+  overflow: hidden;
+  height: 18rem;
+  transition: height 0.5s ease;
+}
+.close-editCreate {
+  width: 5rem;
+  height: 2.5rem;
+  background-color: red;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.icon-arrow-open {
+  bottom: 0;
+}
+
+.close{
+  height: 3.5rem;
+  transition: height 0.5s ease;
+}
+.task {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  /*
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  */
+
+}
+.task-list {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+/* task priority*/
+.alta {
+  color:red;
+  font-size: 0.7rem;
+}
+.media {
+  color: rgb(255, 221, 0);
+  font-size: 0.7rem;
+}
+.baja{
+  color: rgb(113, 219, 7);
+  font-size: 0.7rem;
+}
+
+.icons-show {
+  border: thin solid red;
+  width: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  z-index: 23;
+}
+
+/*
+<i class="bi bi-play-fill"></i> // play
+<i class="bi bi-pause-fill"></i> // pausa
+<i class="bi bi-trash3"></i>   //basura
+<i class="bi bi-mic-fill"></i>    //micro abierto
+<i class="bi bi-mic-mute-fill"></i>   //micro cerrado
+<i class="bi bi-brightness-high-fill"></i>   // mañana
+<i class="bi bi-brightness-alt-high-fill"></i>   // tarde
+<i class="bi bi-moon-stars-fill"></i>   // noche
+<i class="bi bi-bell-fill"></i>   //campana
+<i class="bi bi-eye"></i>   //ojo abierto
+<i class="bi bi-eye-slash"></i>   //ojo cerrado
+<i class="bi bi-pencil-square"></i>    //lapiz editar
+<i class="bi bi-copy"></i>    //copiar
+<i class="bi bi-x"></i> // cerrar / descompletar
+<i class="bi bi-check"></i>   //check/completar
+<i class="bi bi-plus"></i>   // añadir
+<i class="bi bi-circle-fill"></i> // circle
+<i class="bi bi-chevron-compact-up"></i>    // ^
+<i class="bi bi-hourglass-top"></i>   // reloj
+<i class="bi bi-file-earmark-text"></i>    //lista
+
+// emijis para el usuario
+instalar biblioteca emoji-mart =>  npm i emoji-mart
+*/

@@ -1,0 +1,21 @@
+.form {
+  border: thin solid red;
+  background-color: transparent;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5rem;
+}
+.form input, select {
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: thin solid red;
+}
+.form button {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+input::placeholder, option {
+  text-align: center;
+}

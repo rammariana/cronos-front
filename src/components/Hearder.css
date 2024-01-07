@@ -1,0 +1,80 @@
+:root {
+  --var-btn-slide-light:rgb(153, 245, 117);
+  --var-btn-slide-dark: rgb(197, 205, 205); 
+  --var-btn-slide-circle: rgb(242, 247, 247); 
+
+}
+.btn-language {
+  cursor: pointer;
+}
+.button-container {
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: background-color 0.5s ease;
+}
+.button-dark {
+  background-color: var(--var-btn-slide-dark);
+  cursor: pointer;
+}
+.button-light {
+  background-color: var(--var-btn-slide-light);
+}
+.button-slide {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--var-btn-slide-circle);
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+}
+.container_btns {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: .5rem;
+}
+.container_btns button {
+  font-size: 1.5rem;
+  border: none;
+  background-color: transparent;
+}
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.start {
+  transform: translateX(-100%);
+}
+.end {
+  transform: translateX(0);
+}
+.light {
+  background-color: yellow;
+}
+.dark {
+  background-color: var(--var-btn-slide-dark);
+}
+@media screen and (min-width: 300px) {
+  .header {
+    padding: 0.7rem 3.5rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .header {
+    padding: 0.7rem 10rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header {
+    padding: 0.7rem 15rem;
+  }
+}

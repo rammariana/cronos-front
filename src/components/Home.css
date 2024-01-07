@@ -1,0 +1,19 @@
+:root {
+  --var-btn-slide-light: rgb(153, 245, 117);
+  --var-btn-slide-dark: rgb(197, 205, 205);
+  --var-btn-slide-circle: rgb(242, 247, 247);
+}
+.home {
+  border: thin solid red;
+  padding: 5rem 1rem 0;
+  width: 100%;
+  min-height: 96vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
