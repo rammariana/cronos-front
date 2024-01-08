@@ -58,7 +58,7 @@ export const addAudio = async (endpoint, data) => {
   console.log(url);
   try {
     const response = await fetch(url, options);
-    console.log(response)
+    console.log(response, formData);
     const res = await response.json();
     return res;
   } catch (err) {

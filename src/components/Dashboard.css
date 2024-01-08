@@ -49,6 +49,11 @@
 
 .span-container {
   width: auto;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+  z-index: 2;
 }
 .screen {
   width: 100%;
@@ -127,8 +132,9 @@
 .week-container {
   width: 100%;
   position: relative;
-  max-height: auto;
+  max-height: 10rem;
   border: thin solid red;
+  overflow: hidden;
 }
 .complete {
   text-decoration:line-through;
@@ -153,27 +159,34 @@
   border-radius: 0.5rem;
   padding-top: .5rem;
   width: 100%;
-  max-height: 18rem;
+  /*max-height: 12rem;*/
   padding-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  overflow: hidden;
+  overflow: scroll;
   transition: overflow 0.5s ease;
 }
 /* Open & close task-container*/
+/*
 .icon-open {
   cursor: pointer;
   position: absolute;
   right: 1rem;
-  bottom: 20%;
+  bottom: 0;
   z-index: 2;
-}
+}*/
 .open{
-  overflow: hidden;
-  height: 18rem;
+  overflow: scroll;
+  height: 20rem;
   transition: height 0.5s ease;
 }
+.open-week{
+  overflow: hidden;
+  height: 20rem;
+  transition: height 0.5s ease;
+}
+
 .close-editCreate {
   width: 5rem;
   height: 2.5rem;
@@ -183,9 +196,11 @@
 }
 .icon-arrow-open {
   bottom: 0;
+  position: absolute;
 }
 
 .close{
+  overflow: hidden;
   height: 3.5rem;
   transition: height 0.5s ease;
 }

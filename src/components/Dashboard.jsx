@@ -133,7 +133,9 @@ function Dashboard() {
           {dictionary[language].dashboard_h1}
           {id.username}
         </h1>
-        <section className={`week-container ${openWeek ? "open" : "close"}`}>
+        <section
+          className={`week-container ${openWeek ? "open-week" : "close"}`}
+        >
           {/**map para cada día */}
           <section className={`day-container ${openTask ? "open" : "close"}`}>
             <div className="header-week">
