@@ -28,7 +28,7 @@
   background-color: transparent;
 }
 .input-container input:focus {
-  border-bottom: thin solid var(--color-text-primary);
+  border-bottom: thin solid var(--color-primary);
 }
 .input-container {
   width: 50%;
