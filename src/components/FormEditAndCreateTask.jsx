@@ -26,14 +26,22 @@ function FormEditAndCreateTask({task}) {
   const handleCreateOrEditTask = async (e) => {
     e.preventDefault();
     console.log(task);
-    
+    setFormMessage(
+      <div className="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
+
     if (task && task._id) {
-      const endpoint = `task/${task._id}`; 
+      const endpoint = `task/${task._id}`;
       try {
         const data = formTask;
         const response = await putData(endpoint, data);
         console.log(response);
-        setDataTask(response);
+        setDataTask([...dataTask, response]);
 
         // clean inputs
 
@@ -43,24 +51,29 @@ function FormEditAndCreateTask({task}) {
           task_hour: "",
           task_priority: "",
         });
-        
-        setFormMessage(`${response.status} || Data send successfully`);
 
+        setFormMessage(dictionary[language].dashboard_success);
+        setTimeout(() => setFormMessage(""), 1500);
       } catch (err) {
         console.log(err);
-        setFormMessage(`${err.status} || An error occurred, try again`);
-        setTimeout(() => {
-          setFormMessage('');
-        }, 1500);
+        setFormMessage(dictionary[language].dashboard_error);
+        setTimeout(() => setFormMessage(""), 1500);
       }
     } else {
       const endpoint = `user/${id._id}`;
-      
+      setFormMessage(
+        <div className="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      );
       try {
         const data = formTask;
         const response = await addData(endpoint, data);
         console.log(response);
-        setDataTask(response);
+        setDataTask([...dataTask, response]);
 
         // clean inputs
 
@@ -70,33 +83,30 @@ function FormEditAndCreateTask({task}) {
           task_hour: "",
           task_priority: "",
         });
-        
-        setFormMessage(`${response.status} || Data send successfully`);
-        
+
+        setFormMessage(dictionary[language].dashboard_success);
+        setTimeout(() => setFormMessage(""), 1500);
       } catch (err) {
         console.log(err);
-        setFormMessage(`${err.status} || An error occurred, try again`);
-        setTimeout(() => {
-          setFormMessage("");
-        }, 1500);
+        setFormMessage(dictionary[language].dashboard_error);
+        setTimeout(() => setFormMessage(""), 1500);
       }
     }
   };
 
-
   useEffect(() => {
     //console.log(dataTask);
   }, [dataTask]);
-   
+
   useEffect(() => {
     //console.log(task);
     //console.log(formTask);
   }, [formTask, task]);
-  
+
   return (
     <>
       <form onSubmit={handleCreateOrEditTask} className={`form ${appcolor}`}>
-        <span className="message">{formMessage}</span>
+        <span className="message-form">{formMessage}</span>
         <input
           type="text"
           maxLength={25}

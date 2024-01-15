@@ -1,11 +1,25 @@
-#root {
-  max-width: 100vw;
+:root { 
+  /*max-width: 100vw;*/
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+  
+  --color-primary: #28B1FE;
+  --color-sencondary: #3EFD72;
+  --color-light: #E2FBE9;
+  --color-dark: #C9CFD3;
+  --color-white: white;
+  --color-text-dark: #3a3b3c;
+  --color-text-light: #7a7e80;
+  --color-medium: #FDCF3E;
+  --color-height: #FD3E3E;
+  --color-btn-ligth: linear-gradient(#3EFD72, #28B1FE);
+  --color-btn-dark: linear-gradient( #C472F3, #5B5BEF );
+  
+  
 }
-
 /*****  START SPINNER SECTION  *****/
 .lds-ellipsis {
   display: inline-block;
@@ -19,7 +33,7 @@
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-sencondary);
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {

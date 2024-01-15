@@ -1,8 +1,34 @@
+:root { 
+  
+  --color-primary: #28B1FE;
+  --color-sencondary: #3EFD72;
+  --color-light: #E2FBE9;
+  --color-dark: #C9CFD3;
+  --color-white: white;
+  --color-text-dark: #3a3b3c;
+  --color-text-light: #7a7e80;
+  --color-medium: #FDCF3E;
+  --color-high: #FD3E3E;
+  --color-btn-ligth: linear-gradient(#3EFD72, #28B1FE);
+  --color-btn-dark: linear-gradient( #C472F3, #5B5BEF );
+  /**/
+  --border-radius: 0.5rem;
+  
+}
+
 .input-container input {
   text-align: end;
   width: 2rem;
   height: 2rem;
   margin-left: 0.5rem;
+  border: none;
+  border-bottom: thin solid var(--color-dark);
+  outline: none;
+  color: var(--color-text-dark);
+  background-color: transparent;
+}
+.input-container input:focus {
+  border-bottom: thin solid var(--color-text-dark);
 }
 .input-container {
   border: thin solid white;
@@ -15,6 +41,7 @@
 
 .timer-container .bi {
   font-size: 3rem !important;
+  color: var(--color-primary);
 }
 .timer input::placeholder {
   text-align: end;
@@ -28,7 +55,7 @@
 .timer-container {
   width: 50%;
   height: 15rem;
-  margin: 1rem 0;
+  margin: 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +64,7 @@
 .timer {
   width: 8rem;
   height: 8rem;
-  background-color: black;
+  background-image: var(--color-btn-dark);
   border-radius: 50%;
   display: flex;
   align-items: center;

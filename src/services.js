@@ -45,22 +45,20 @@ export const addData = async (endpoint, data) => {
 };
 export const addAudio = async (endpoint, data) => {
   const url = `${API_URL}/${endpoint}`;
-  const formData = new FormData();
-  //formData.append("audio", data, { filename: "audio.wav" }); 
-  formData.set('audio', data)
+  console.log(data);
+
   const options = {
     method: "POST",
     headers: {
-      "Content-Type": "multipart/form-data",
+      "Content-Type": "application/json",
     },
-    body: formData,
+    body: JSON.stringify({ url: data }),
   };
-  console.log(url);
+
   try {
     const response = await fetch(url, options);
-    console.log(response, formData);
     const res = await response.json();
-    return res;
+    console.log(res);
   } catch (err) {
     console.error(err);
   }

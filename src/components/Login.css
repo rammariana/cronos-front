@@ -1,25 +1,50 @@
+:root { 
+  
+  --color-primary: #28B1FE;
+  --color-sencondary: #3EFD72;
+  --color-light: #E2FBE9;
+  --color-dark: #C9CFD3;
+  --color-white: white;
+  --color-text-dark: #3a3b3c;
+  --color-text-light: #7a7e80;
+  --color-medium: #FDCF3E;
+  --color-high: #FD3E3E;
+  --color-btn-ligth: linear-gradient(#3EFD72, #28B1FE);
+  --color-btn-dark: linear-gradient( #C472F3, #5B5BEF );
+  /**/
+  --border-radius: 0.5rem;
+  
+}
 .btn-register {
-  border-radius: 0.5rem;
-  border: 0.5px solid var(--var-btn-slide-light);
   padding: 0.8rem;
-  background-color: var(--var-btn-slide-light);
   cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+.btn-register:hover {
+  background-image: var(--color-btn-ligth);
 }
 .form-register {
+  margin: 2rem 0;
   width: 80%;
   gap: 1rem;
   display: flex;
   flex-direction: column;
 }
 .form-register input {
-  border-radius: 0.5rem;
-  border: 0.5px solid var(--var-btn-slide-light);
+  border-radius: var(--border-radius);
+  border: none;
   padding: 0.8rem;
+  outline: thin solid var(--color-primary);
+}
+.form-register input:focus {
+  outline: thin solid var(--color-sencondary);
 }
 .form-register input::placeholder {
   text-align: center;
 }
-
 .span-message {
   height: 1rem;
   text-align: center;
@@ -28,8 +53,9 @@
   right: auto;
 }
 .span-register-login{
-  color: blue;
+  color: var( --color-primary);
   cursor: pointer;
+  margin-bottom: 6rem;
 }
 .disabled {
   pointer-events: none;
@@ -40,8 +66,6 @@
   pointer-events: auto;
   opacity: 1; 
 }
-
-
 
 @media screen and (min-width: 450px) {
   .form-register {

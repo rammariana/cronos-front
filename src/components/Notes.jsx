@@ -71,81 +71,71 @@ function Notes({dictionary, language}) {
       </div>
     );
     try {
-    if (form.note_description === "" && form.note_title === "") {
-      setMessage(dictionary[language].dashboard_empty_fields);
-      setTimeout(() => {
-      setMessage('');
-        
-      }, 1000);
-    } else if (form.note_description === "") {
-      setMessage(dictionary[language].dashboard_empty_description);
-      setTimeout(() => {
-        setMessage("");
-      }, 1000);
-    } else if (form.note_title === "") {
-      setMessage(dictionary[language].dashboard_empty_title);
-      setTimeout(() => {
-        setMessage("");
-      }, 1000);
-    } else {
-      const data = form;
-      const response = await addData(endpoint, data);
-      setMessage(dictionary[language].dashboard_success);
+      if (form.note_description === "" && form.note_title === "") {
+        setMessage(dictionary[language].dashboard_empty_fields);
+        setTimeout(() => setMessage(""), 1000);
+      } else if (form.note_description === "") {
+        setMessage(dictionary[language].dashboard_empty_description);
+        setTimeout(() => setMessage(""), 1000);
+      } else if (form.note_title === "") {
+        setMessage(dictionary[language].dashboard_empty_title);
+        setTimeout(() => setMessage(""), 1000);
+      } else {
+        const data = form;
+        const response = await addData(endpoint, data);
+        setMessage(dictionary[language].dashboard_success);
 
-      setTimeout(() => {
-        setMessage("");
-      }, 1000);
+        setTimeout(() => {
+          setMessage("");
+        }, 1000);
 
-      //setDataNotes(...dataNotes, response);
-      setDataNotes([...dataNotes, response]);
+        //setDataNotes(...dataNotes, response);
+        setDataNotes([...dataNotes, response]);
 
-
-      setForm({
-        note_title: "",
-        note_description: "",
-      });
-      setHiddenList(false);
-    }
-      
-    } catch (err) {
-        console.log(err);
-        setMessage(dictionary[language].dashboard_error); 
+        setForm({
+          note_title: "",
+          note_description: "",
+        });
+        setHiddenList(false);
       }
+    } catch (err) {
+      console.log(err);
+      setMessage(dictionary[language].dashboard_error);
+    }
   };
 
   const handleDeleteNote = async (e) => {
     const id = e.target.id;
     console.log(id);
-   const endpoint = `note/${id}`;
-   setMessage(
-     <div className="lds-ellipsis">
-       <div></div>
-       <div></div>
-       <div></div>
-       <div></div>
-     </div>
-   );
-   console.log(id);
+    const endpoint = `note/${id}`;
+    setMessage(
+      <div className="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
+    console.log(id);
 
-  try {
-    const response = await deleteData(endpoint);
-    setMessage(dictionary[language].dashboard_success_delete);
-    console.log("response", response);
+    try {
+      const response = await deleteData(endpoint);
+      setMessage(dictionary[language].dashboard_success_delete);
+      console.log("response", response);
       //setDataNotes([...dataNotes, response]);
-     setDataNotes((prevDataNotes) =>
-       prevDataNotes.filter((note) => note._id !== id)
-     );
-    setTimeout(() => {
-      setMessage("");
-    }, 1000);
-
-   } catch (err) {
-     console.log(err);
-     setMessage(dictionary[language].dashboard_error)
-     setTimeout(() => {
-       setMessage("");
-     }, 1000);
-   }
+      setDataNotes((prevDataNotes) =>
+        prevDataNotes.filter((note) => note._id !== id)
+      );
+      setTimeout(() => {
+        setMessage("");
+      }, 1000);
+    } catch (err) {
+      console.log(err);
+      setMessage(dictionary[language].dashboard_error);
+      setTimeout(() => {
+        setMessage("");
+      }, 1000);
+    }
   };
   useEffect(() => {
     console.log(message, dataNotes);
@@ -153,18 +143,17 @@ function Notes({dictionary, language}) {
 
   useEffect(() => {
     fetchNotes();
-    console.log(note)
+    console.log(note);
   }, [id, note]);
 
-
+  useEffect(() => {}, [hiddenList]);
   useEffect(() => {
-  }, [hiddenList]);
-  useEffect(() => {console.log(form) }, [form]);
-  
+    console.log(form);
+  }, [form]);
+
   return (
     <>
       <section className={`notes-tool ${appcolor}`}>
-        <h1>Notas</h1>
         <span className="empty-tool">{message}</span>
 
         {addNote ? (
@@ -243,7 +232,7 @@ function Notes({dictionary, language}) {
                   >
                     {note.note_title}
                   </li>
-                  <div className="tash">
+                  <div className="trash">
                     <i
                       className="bi bi-trash3"
                       id={note._id}

@@ -1,7 +1,27 @@
+:root { 
+  
+  --color-primary: #28B1FE;
+  --color-sencondary: #3EFD72;
+  --color-light: #E2FBE9;
+  --color-dark: #C9CFD3;
+  --color-white: white;
+  --color-text-dark: #3a3b3c;
+  --color-text-light: #7a7e80;
+  --color-medium: #FDCF3E;
+  --color-high: #FD3E3E;
+  --color-btn-ligth: linear-gradient(#3EFD72, #28B1FE);
+  --color-btn-dark: linear-gradient( #C472F3, #5B5BEF );
+  /**/
+  --border-radius: 0.5rem;
+  
+}
+.active {
+  background-color: var(--color-sencondary);
+}
 .circle {
   width: 3rem;
   height: 3rem;
-  background-color: rgb(247, 246, 243);
+  background-color: var(--color-primary);
   border-radius: 50%;
   padding-left: 0.1rem;
   display: flex;
@@ -9,7 +29,11 @@
   justify-content: center;
   font-size: 1.5rem;
   line-height: 1px;
-  color: rgb(45, 200, 239);
+  color: var(--color-light);
+  cursor: pointer;
+}
+.circle:hover {
+  background-color: var(--color-sencondary);
 }
 .dashboard {
   padding-left: 0.5rem;
@@ -21,48 +45,60 @@
   align-items: center;
   flex-direction: column;
 }
+.dashboard h1 {
+  margin-bottom: 1rem;
+}
 .dashboard-priority {
   text-align: center;
+  line-height: 1.5rem;
 }
 .header-week {
-  width: 100%;
-  border: thin solid white;
+  width: 70%;
   display: flex;
-  padding: 0 .5rem;
+  padding: 0.7rem .5rem;
   justify-content: space-between;
   align-items: center;
 }
 .icon {
   color: yellow;
   font-size: 1.6rem;
+  width: 50%;
 }
 .nav-tools {
   width: 3rem;
-  height: 25rem;
-  position: sticky;
-  bottom: 0;
-  /*right: 1rem;*/
+  height: 15rem;
+  position: fixed;
+  bottom: 7.5rem;
+  right: 1.2rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 1rem;
 }
-
 .span-container {
   width: auto;
   cursor: pointer;
   position: absolute;
-  right: 1rem;
   bottom: 0;
+  right: 1rem;
   z-index: 2;
 }
+
+/*
+.open{
+  overflow: scroll;
+  height: 20rem;
+  transition: height 0.5s ease;
+}
+*/
 .screen {
   width: 100%;
-  height: 100%;
+  min-height: 20rem;
   padding: 2rem 0;
   position: relative;
   display:flex;
-  justify-content: center;
-  margin-top: 2rem;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 .screen .message {
   position:absolute;
@@ -76,6 +112,10 @@
   text-align: center;
   background-color: white;
 }
+.form-container {
+  width: 90%;
+  text-align: center;
+}
 .size-md {
   font-size: 1.9rem;
 }
@@ -88,13 +128,18 @@
 }
 .plus {
   font-size: 2rem !important;
-  /*position: absolute;*/
   text-align: center;
 }
 .task-icons {
   display: flex;
   justify-content: space-around;
   width: 5rem;
+}
+@media screen and (min-width: 600px) {
+  .task-icons {
+    width: 12rem;
+  }
+  
 }
 .task div p {
   text-overflow: ellipsis;
@@ -108,6 +153,7 @@
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
+  overflow: scroll;
 }
 .task-container hr {
   text-align: center;
@@ -118,23 +164,53 @@
   padding-right: 0;
   line-height: 14.2px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.task-num small {
+  color: var(--color-sencondary);
 }
 .tools {
-  width: 100%;
-  border: thin solid red;
-  height: 100%;
+  width: 90%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 }
 .week-container {
   width: 100%;
   position: relative;
-  max-height: 10rem;
-  border: thin solid red;
-  overflow: hidden;
+  height: 12rem;
+  border-top: thin solid var(--color-primary);
+  border-left: thin solid var(--color-primary);
+  border-right: thin solid var(--color-primary);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  background-color: white;
+  overflow: scroll;
+  padding: 0.5rem;
+}
+.week-container-icons {
+  width: 100%;
+  bottom: 0;
+  height: 3.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  color: var(--color-primary);
+  border: thin solid var(--color-primary);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.week-container-icons .bi {
+  cursor: pointer;
+}
+.week-container-icons .bi:hover {
+  color: var(--color-sencondary);
 }
 .complete {
   text-decoration:line-through;
@@ -142,71 +218,74 @@
 .uncomplete {
   text-decoration:none;
 }
-.week-container-icons {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  height: 3.5rem;
-  border: thin solid red;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.big {
+  font-size: 1.3rem;
 }
 .day-container {
   background-color: white;
   position: relative;
   border: thin solid rgb(0, 255, 72);
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
   padding-top: .5rem;
   width: 100%;
-  /*max-height: 12rem;*/
+  /*height: 12rem;*/
   padding-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  overflow: scroll;
   transition: overflow 0.5s ease;
 }
-/* Open & close task-container*/
-/*
+
+/* Open & close day-container*/
 .icon-open {
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 2;
+  width: 10%;
+}
+.icon-arrow-open {
   cursor: pointer;
   position: absolute;
   right: 1rem;
   bottom: 0;
   z-index: 2;
-}*/
-.open{
-  overflow: scroll;
-  height: 20rem;
-  transition: height 0.5s ease;
+  width: 10%;
 }
-.open-week{
-  overflow: hidden;
-  height: 20rem;
-  transition: height 0.5s ease;
-}
-
-.close-editCreate {
-  width: 5rem;
-  height: 2.5rem;
-  background-color: red;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-.icon-arrow-open {
-  bottom: 0;
-  position: absolute;
-}
-
-.close{
+.close {
   overflow: hidden;
   height: 3.5rem;
   transition: height 0.5s ease;
 }
+
+/**  **/
+.open{
+  overflow: hidden;
+  height: 20rem;
+  transition: height 0.5s ease;
+}
+.open-week{
+  overflow: scroll;
+  height: 20rem;
+  transition: height 0.5s ease;
+}
+
+/*btn close edit task/create task*/
+.close-editCreate {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-high);
+  color: var(--color-light);
+  border-radius: 50%;
+}
+/*btn close edit task/create task*/
 .task {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
   /*
   justify-content: space-between;
   flex-direction: row-reverse;
@@ -218,32 +297,35 @@
   width: 100%;
   display: flex;
   gap: 0.5rem;
+  row-gap: 0.5rem;
   flex-direction: column;
+  padding-right: 0.5rem;
 }
 /* task priority*/
 .alta {
-  color:red;
+  color:var(--color-high);
   font-size: 0.7rem;
 }
 .media {
-  color: rgb(255, 221, 0);
+  color: var(--color-medium
+  );
   font-size: 0.7rem;
 }
 .baja{
-  color: rgb(113, 219, 7);
+  color: var(--color-sencondary);
   font-size: 0.7rem;
 }
+/* task priority*/
 
 .icons-show {
-  border: thin solid red;
-  width: 2rem;
   text-align: center;
-  font-size: 1.2rem;
-  z-index: 23;
+  font-size: 1.5rem;
+  z-index: 2;
 }
 
 /*
 <i class="bi bi-play-fill"></i> // play
+<i class="bi bi-x-lg"></i> // close
 <i class="bi bi-pause-fill"></i> // pausa
 <i class="bi bi-trash3"></i>   //basura
 <i class="bi bi-mic-fill"></i>    //micro abierto

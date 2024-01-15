@@ -1,7 +1,8 @@
 import "./Hearder.css";
 import {useContext, useEffect, useState } from "react";
 import { Color, Language } from "../App";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import Logo from "../assets/Cro-blue-removebg.png";
 
 function Header() {
   const [darkMode, setDarkMode] = useState(false);
@@ -17,12 +18,17 @@ function Header() {
   };
   useEffect(() => {
     console.log(appcolor);
-     console.log(language);
-  }, [appcolor, darkMode, language])
+    console.log(language);
+  }, [appcolor, darkMode, language]);
   return (
     <>
       <header className={`header ${appcolor}`}>
-        <Link to="/">LOGO</Link>
+        <div className="logo">
+          <Link to="/">
+            {" "}
+            <img src={Logo} />
+          </Link>
+        </div>
         <div className="container_btns">
           {/** Btn dark mode */}
           <div

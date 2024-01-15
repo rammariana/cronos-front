@@ -1,14 +1,26 @@
-:root {
-  --var-btn-slide-light:rgb(153, 245, 117);
-  --var-btn-slide-dark: rgb(197, 205, 205); 
-  --var-btn-slide-circle: rgb(242, 247, 247); 
-
+:root { 
+  
+  --color-primary: #28B1FE;
+  --color-sencondary: #3EFD72;
+  --color-light: #E2FBE9;
+  --color-dark: #C9CFD3;
+  --color-white: white;
+  --color-text-dark: #3a3b3c;
+  --color-text-light: #7a7e80;
+  --color-medium: #FDCF3E;
+  --color-height: #FD3E3E;
+  --color-btn-ligth: linear-gradient(#3EFD72, #28B1FE);
+  --color-btn-dark: linear-gradient( #C472F3, #5B5BEF );
+  
+}
+.logo {
+  text-align: start;
 }
 .btn-language {
   cursor: pointer;
 }
 .button-container {
-  width: 3rem;
+  width: 5rem;
   height: 1.5rem;
   border-radius: 1rem;
   display: flex;
@@ -17,16 +29,16 @@
   transition: background-color 0.5s ease;
 }
 .button-dark {
-  background-color: var(--var-btn-slide-dark);
+  background-image: var(--color-btn-dark);
   cursor: pointer;
 }
 .button-light {
-  background-color: var(--var-btn-slide-light);
+  background-image: var(--color-btn-ligth);
 }
 .button-slide {
   width: 1.5rem;
   height: 1.5rem;
-  background-color: var(--var-btn-slide-circle);
+  background-color: white;
   border-radius: 50%;
   transition: transform 0.5s ease;
 }
@@ -40,6 +52,8 @@
   font-size: 1.5rem;
   border: none;
   background-color: transparent;
+  text-align: end;
+  margin-right: 0.5rem;
 }
 .header {
   width: 100%;
@@ -51,30 +65,52 @@
   justify-content: space-between;
   align-items: center;
 }
+.header img {
+  max-width: 3rem;
+}
 .start {
-  transform: translateX(-100%);
+  transform: translateX(-90%);
 }
 .end {
   transform: translateX(0);
 }
 .light {
-  background-color: yellow;
+  background-color: var(--color-light);
+  color: var(--color-text-light);
 }
 .dark {
-  background-color: var(--var-btn-slide-dark);
+  background-color: var(--color-dark);
+  color: var(--color-text-dark);
 }
 @media screen and (min-width: 300px) {
   .header {
     padding: 0.7rem 3.5rem;
   }
+  
 }
+@media screen and (min-width: 600px) {
+  
+  .start {
+  transform: translateX(-150%);
+  }
+}
+
 @media screen and (min-width: 900px) {
   .header {
     padding: 0.7rem 10rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .header {
+    padding: 0.7rem 15rem;
+  }
+  .start {
+  transform: translateX(-155%);
   }
 }
 @media screen and (min-width: 1200px) {
   .header {
     padding: 0.7rem 15rem;
   }
+  
 }

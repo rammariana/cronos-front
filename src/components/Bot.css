@@ -1,0 +1,25 @@
+:root { 
+  
+  --color-primary: #28B1FE;
+  --color-sencondary: #3EFD72; 
+  --color-light: #E2FBE9;
+  --color-dark: #C9CFD3;
+  --color-white: white;
+  --color-text-dark: #3a3b3c;
+  --color-text-light: #7a7e80;
+  --color-medium: #FDCF3E;
+  --color-high: #FD3E3E;
+  --color-btn-ligth: linear-gradient(#3EFD72, #28B1FE);
+  --color-btn-dark: linear-gradient( #C472F3, #5B5BEF );
+  /**/
+  --border-radius: 0.5rem;
+  
+}
+.bp-widget-widget {
+  bottom: 15rem !important;
+  right: 0.7rem !important;
+}
+.bpw-floating-button {
+  width: 3rem;
+  height: 3rem;
+}
