@@ -2,7 +2,7 @@ import "./Hearder.css";
 import {useContext, useEffect, useState } from "react";
 import { Color, Language } from "../App";
 import { Link } from "react-router-dom";
-import Logo from "../assets/Cro-blue-removebg.png";
+import Logo from "../assets/cro-blue-removebg.png";
 
 function Header() {
   const [darkMode, setDarkMode] = useState(false);
