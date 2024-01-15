@@ -1,5 +1,5 @@
-import "./Hearder.css";
-import {useContext, useEffect, useState } from "react";
+import "./Header.css";
+import { useContext, useEffect, useState } from "react";
 import { Color, Language } from "../App";
 import { Link } from "react-router-dom";
 import Logo from "../assets/cro-blue-removebg.png";
