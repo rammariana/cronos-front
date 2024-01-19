@@ -68,8 +68,8 @@
   width: 3rem;
   height: 15rem;
   position: fixed;
-  bottom: 7.5rem;
-  right: 1.2rem;
+  bottom: 4rem;
+  right: 0.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -321,6 +321,17 @@
   text-align: center;
   font-size: 1.5rem;
   z-index: 2;
+}
+@media screen and (min-width: 600px) {
+  .nav-tools {
+    right: 1rem;
+  } 
+  .dashboard {
+    padding: 4rem 20%;
+  } 
+  .dashboard h1 {
+    margin-bottom: 2.5rem;
+  }
 }
 
 /*

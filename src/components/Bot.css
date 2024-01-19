@@ -16,10 +16,10 @@
   
 }
 .bp-widget-widget {
-  bottom: 15rem !important;
-  right: 0.7rem !important;
+  bottom: 11.5rem !important;
+  right: 0.5rem !important;
 }
 .bpw-floating-button {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem !important;
+  height: 2rem !important;
 }

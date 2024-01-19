@@ -47,6 +47,8 @@ footer .small {
 }
 .footer-icon {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .section-footer p {
   color: var(--color-light);

@@ -53,9 +53,14 @@
   right: auto;
 }
 .span-register-login{
+  width: auto;
   color: var( --color-primary);
   cursor: pointer;
   margin-bottom: 6rem;
+  transition: font-weight 0.3s ease-in-out;
+}
+.span-register-login:hover {
+  font-weight: bold;
 }
 .disabled {
   pointer-events: none;

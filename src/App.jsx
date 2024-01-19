@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import { addData, getUserData } from "./services";
 import "./App.css";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 
 // Context
@@ -13,6 +13,7 @@ export const Auth = createContext();
 export const Language = createContext();
 
 function App() {
+  const location = useLocation();
   const navigate = useNavigate();
   const [mode, setMode] = useState("light");
   const [user, setUser] = useState([]); // User data
@@ -38,6 +39,10 @@ function App() {
       home_clock_left: "Cuida tu tiempo",
       home_clock_right: "Diseño simple",
       home_h3: "Accede para gestionar tu tiempo con Cronos",
+      //
+      footer_contact: "Contacto",
+      footer_programmed_by: "Programado con ❤️ por Mariana Ramírez",
+      footer_tecno: "Este sitio fue construido con",
       //
       auth_error_msg: "Error, intenta más tarde",
       auth_incorrect_data: "Datos incorrectos",
@@ -93,6 +98,10 @@ function App() {
       home_clock_left: "Guard your time",
       home_clock_right: "Simple design",
       home_h3: "Access to manage your time with Cronos",
+      //
+      footer_contact: "Contact",
+      footer_programmed_by: "Programmed with ❤️ by Mariana Ramírez",
+      footer_tecno: "This site was built with",
       //
       auth_error_msg: "Error, try again later",
       auth_incorrect_data: "Incorrect data",
@@ -182,39 +191,43 @@ function App() {
       setBtnDisable("available");
     }
   };
+
   const userRegister = async (email, password, username) => {
     const endpoint = "user";
     const data = { email, password, username };
+    setBtnDisable("disabled");
 
     try {
+      setMessage(
+        <div className="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      );
       if (email && password) {
         const response = await addData(endpoint, data);
-
-        setBtnDisable("disabled");
-        setMessage(
-          <div className="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        );
-
-        setUser(response);
-        setUserId(response._id);
-        setTimeout(() => {
-          setMessage("");
-        }, 1500);
+        if (response) {
+          setMessage(languageDictionary[selectLanguage].dashboard_success);
+          setBtnDisable("available");
+          setUser(response);
+          setUserId(response._id);
+          setTimeout(() => {
+            setBtnDisable("available");
+            setMessage("");
+          }, 1500);
+        }
       } else {
         setMessage(languageDictionary[selectLanguage].dashboard_empty_fields);
         setTimeout(() => {
           setMessage("");
+          setBtnDisable("available");
         }, 1500);
-        setBtnDisable("available");
       }
     } catch (err) {
       console.log("Error");
-      setMessage(`${err.status}, try later`);
+      setMessage(languageDictionary[selectLanguage].dashboard_error);
       setTimeout(() => {}, 1500);
     }
   };
@@ -281,7 +294,7 @@ function App() {
                 }
               />
             </Routes>
-            <Footer />
+            {location.pathname === "/" && <Footer />}
           </Language.Provider>
         </Auth.Provider>
       </Color.Provider>
