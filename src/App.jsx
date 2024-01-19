@@ -24,7 +24,7 @@ function App() {
   const [btnDisable, setBtnDisable] = useState("available");
 
   const languageDictionary = {
-    "🇪🇦": {
+    "🇬🇧": {
       home_h1: "Gestiona tu tiempo con Cronos",
       home_btn_login: "Iniciar sesión",
       home_btn_register: "Registrame",
@@ -86,7 +86,7 @@ function App() {
       form_btn_update: "Actualizar",
       form_btn_create: "Crear",
     },
-    "🇬🇧": {
+    "🇪🇦": {
       home_h1: "Manage your time with Cronos",
       home_btn_login: "Login",
       home_btn_register: "Register",
@@ -125,7 +125,7 @@ function App() {
       dashboard_saturday: "Saturday",
       dashboard_sunday: "Sunday",
       dashboard_task: "tasks",
-      dashboard_h1: "Welcome",
+      dashboard_h1: "Welcome ",
       dashboard_input_placeholder_title: "Title",
       dashboard_input_placeholder_description: "Description",
       dashboard_btn_add_note: "Add note",
