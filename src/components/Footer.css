@@ -22,7 +22,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: var(--color-btn-dark);
+  background-image: var(--color-btn-ligth);
   text-shadow: 1px 2px 5px var(--color-text-dark);
   font-size: 0.9rem;
 }

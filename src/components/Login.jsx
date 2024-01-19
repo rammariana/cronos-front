@@ -30,7 +30,7 @@ function Login() {
   };
   const handleRegisterOrLogin = () => {
     setLoginRegister(!loginRegister);
-    console.log(setLoginRegister);
+    //console.log(setLoginRegister);
   };
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +42,7 @@ function Login() {
   };
 
   useEffect(() => {
-    console.log(message, language);
+    //console.log(message, language);
   }, [message, language]);
 
   useEffect(() => {}, [form]);

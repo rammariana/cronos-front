@@ -71,13 +71,8 @@ function Timer() {
       setSec(sec);
       setHour(hour);
 
-      console.log(min, sec);
-      /*if (min === "00" && sec === "00" && hour === "00") {
-        setPaused(true);
-        setAlarm(true);
-        clearInterval(interval);
-        play();
-      }*/
+      //console.log(min, sec);
+
       if (remainingTime <= 0) {
         play();
         setMin("00");

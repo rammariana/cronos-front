@@ -17,8 +17,8 @@ function Header() {
     languageMode();
   };
   useEffect(() => {
-    console.log(appcolor);
-    console.log(language);
+    //console.log(appcolor);
+    //console.log(language);
   }, [appcolor, darkMode, language]);
   return (
     <>

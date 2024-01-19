@@ -43,7 +43,7 @@ function Dashboard() {
   const [saturday, setSaturday] = useState([]);
   const [sunday, setSunday] = useState([]);
 
-  //functions
+  //functions open close day
   const handleClickOpenCloseMonday = useCallback(() => {
     setOpenTaskMonday((prev) => !prev);
   }, []);
@@ -65,6 +65,7 @@ function Dashboard() {
   const handleClickOpenCloseSunday = useCallback(() => {
     setOpenTaskSunday((prev) => !prev);
   }, []);
+  // Functions open close day
 
   const handleClickOpenCloseWeek = () => {
     setOpenWeek(!openWeek);
@@ -248,7 +249,7 @@ function Dashboard() {
     );
     try {
       const response = await deleteData(endpoint);
-      console.log(response);
+      //console.log(response);
       setMessage(dictionary[language].dashboard_success_delete);
 
       setTimeout(() => setMessage(""), 1200);
@@ -278,7 +279,7 @@ function Dashboard() {
       const data = { task_completed: boolean };
       const res = await putData(endpoint, data);
 
-      console.log(res);
+      //console.log(res);
       setMessage(dictionary[language].dashboard_success);
       setTimeout(() => setMessage(""), 1000);
     } catch (err) {
@@ -292,6 +293,42 @@ function Dashboard() {
     setTool(tool);
     setEditTask(false);
     setAddTask(false);
+  };
+
+  // Funcion delete all tasks for the week   priosabarca@gmail.com
+  const deleteAllTasks = async () => {
+    const confirmDelete = window.confirm(
+      dictionary[language].dashboard_confirm_delete
+    );
+    const endpoint = `user/${id._id}`;
+
+    if (confirmDelete) {
+      setMessage(
+        <div className="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      );
+      try {
+        const response = await deleteData(endpoint);
+        //console.log(response);
+        setMessage(dictionary[language].dashboard_success_delete_all);
+
+        setTimeout(() => setMessage(""), 1200);
+      } catch (err) {
+        console.error(err);
+        setMessage(dictionary[language].dashboard_error);
+        setTimeout(() => {
+          setMessage("");
+        }, 1200);
+      }
+    } else {
+      console.log(dictionary[language].dashboard_canceled_delete);
+      setMessage(dictionary[language].dashboard_canceled_delete);
+      setTimeout(() => setMessage(""), 1200);
+    }
   };
 
   useEffect(() => {
@@ -1764,7 +1801,7 @@ function Dashboard() {
         </section>
         {/** section icons (add and open/close week)  */}
         <div className="week-container-icons">
-          <i className="bi bi-trash3 big"></i>
+          <i className="bi bi-trash3 big" onClick={deleteAllTasks}></i>
           <i
             className="bi bi-plus plus"
             onClick={() => {

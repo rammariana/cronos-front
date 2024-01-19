@@ -25,7 +25,7 @@ function FormEditAndCreateTask({task}) {
 
   const handleCreateOrEditTask = async (e) => {
     e.preventDefault();
-    console.log(task);
+    //console.log(task);
     setFormMessage(
       <div className="lds-ellipsis">
         <div></div>
@@ -40,7 +40,7 @@ function FormEditAndCreateTask({task}) {
       try {
         const data = formTask;
         const response = await putData(endpoint, data);
-        console.log(response);
+        //console.log(response);
         setDataTask([...dataTask, response]);
 
         // clean inputs
@@ -55,7 +55,7 @@ function FormEditAndCreateTask({task}) {
         setFormMessage(dictionary[language].dashboard_success);
         setTimeout(() => setFormMessage(""), 1500);
       } catch (err) {
-        console.log(err);
+        console.error(err);
         setFormMessage(dictionary[language].dashboard_error);
         setTimeout(() => setFormMessage(""), 1500);
       }
@@ -72,7 +72,7 @@ function FormEditAndCreateTask({task}) {
       try {
         const data = formTask;
         const response = await addData(endpoint, data);
-        console.log(response);
+        //console.log(response);
         setDataTask([...dataTask, response]);
 
         // clean inputs
@@ -87,7 +87,7 @@ function FormEditAndCreateTask({task}) {
         setFormMessage(dictionary[language].dashboard_success);
         setTimeout(() => setFormMessage(""), 1500);
       } catch (err) {
-        console.log(err);
+        console.error(err);
         setFormMessage(dictionary[language].dashboard_error);
         setTimeout(() => setFormMessage(""), 1500);
       }

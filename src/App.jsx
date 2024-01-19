@@ -53,6 +53,7 @@ function App() {
       dashboard_empty_description: "Campo descripción vacío",
       dashboard_success: "¡Listo!",
       dashboard_success_delete: "¡Removido con éxito!",
+      dashboard_success_delete_all: "¡Tareas removidas con éxito!",
       dashboard_error: "Aish, hubo un error... Intenta más tarde",
       dashboard_monday: "Lunes",
       dashboard_tuesday: "Martes",
@@ -69,7 +70,9 @@ function App() {
       dashboard_btn_close: "Close",
       dashboard_btn_send: "Send",
       dashboard_no_task: "No hay tareas aún",
-
+      dashboard_confirm_delete:
+        "¿Estás seguro de que quieres eliminar todas las tareas?",
+      dashboard_canceled_delete: "Eliminación cancelada",
       //
       form_btn_close_edit_create: "Cerrar",
       form_input_placeholder_days: "Día",
@@ -111,6 +114,7 @@ function App() {
       dashboard_empty_title: "Empty title field",
       dashboard_empty_description: "Empty description field",
       dashboard_success: "All set!",
+      dashboard_success_delete_all: "¡Successfully removed tasks!",
       dashboard_success_delete: "Successfully removed!",
       dashboard_error: "Oops, there was a mistake... Try again later!",
       dashboard_monday: "Monday",
@@ -128,6 +132,8 @@ function App() {
       dashboard_btn_close: "Close",
       dashboard_btn_send: "Send",
       dashboard_no_task: "No tasks yet",
+      dashboard_confirm_delete: "Are you sure you want to delete all tasks?",
+      dashboard_canceled_delete: "Elimination canceled?",
       //
       form_input_placeholder_days: "Day",
       form_btn_close_edit_create: "Close",

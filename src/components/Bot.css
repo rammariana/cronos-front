@@ -17,9 +17,15 @@
 }
 .bp-widget-widget {
   bottom: 11.5rem !important;
-  right: 0.5rem !important;
+  right: 0.1rem !important;
 }
 .bpw-floating-button {
   width: 2rem !important;
   height: 2rem !important;
+}
+
+@media screen and (min-width: 600px) {
+  .bp-widget-widget {
+    right: 0.6rem !important;
+  }
 }

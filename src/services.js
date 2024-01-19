@@ -45,7 +45,7 @@ export const addData = async (endpoint, data) => {
 };
 export const addAudio = async (endpoint, data) => {
   const url = `${API_URL}/${endpoint}`;
-  console.log(data);
+  //console.log(data);
 
   const options = {
     method: "POST",
@@ -58,7 +58,8 @@ export const addAudio = async (endpoint, data) => {
   try {
     const response = await fetch(url, options);
     const res = await response.json();
-    console.log(res);
+    return res;
+    //console.log(res);
   } catch (err) {
     console.error(err);
   }
@@ -81,6 +82,7 @@ export const putData = async (endpoint, data) => {
     console.error(err);
   }
 };
+
 export const deleteData = async (endpoint) => {
   const url = `${API_URL}/${endpoint}`;
   const options = {
@@ -92,7 +94,7 @@ export const deleteData = async (endpoint) => {
   try {
     const response = await fetch(url, options);
     const res = await response.json();
-    console.log(res);
+    //console.log(res);
     return res;
   } catch (err) {
     console.error(err);

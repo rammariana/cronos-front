@@ -18,46 +18,45 @@ function Notes({dictionary, language}) {
   });
 
   const fetchNotes = async () => {
-      const endpoint = `user/${id._id}/notes`;
-      console.log(id, 'dicccionario', dictionary, 'language', language);
-      setMessage(
-        <div className="lds-ellipsis">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      );
+    const endpoint = `user/${id._id}/notes`;
+    //console.log(id, 'dicccionario', dictionary, 'language', language);
+    setMessage(
+      <div className="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
 
-      try {
-        const response = await getTaskData(endpoint);
-        console.log(response);
-        setMessage('')
-        setDataNotes(response);
-
-      } catch (err) {
-        console.log(err);
-        setMessage(dictionary[language].dashboard_error);
-      }
+    try {
+      const response = await getTaskData(endpoint);
+      //console.log(response);
+      setMessage("");
+      setDataNotes(response);
+    } catch (err) {
+      console.error(err);
+      setMessage(dictionary[language].dashboard_error);
+    }
   };
 
   const readNote = (e) => {
     const id = e.target.id;
     const findNote = dataNotes.find((note) => note._id === id);
-    console.log(id, findNote);
-    setNote(findNote)
+    //console.log(id, findNote);
+    setNote(findNote);
     setHiddenList(true);
-  }
+  };
   const closeNote = () => {
-    setHiddenList(false)
-  }
+    setHiddenList(false);
+  };
   const handleChange = (e) => {
-    console.log(e.target.value.length);
+    //console.log(e.target.value.length);
     setForm({
       ...form,
       [e.target.name]: e.target.value,
-    });  
-  }
+    });
+  };
 
   const handleAddNoteSubmit = async (e) => {
     e.preventDefault();
@@ -99,14 +98,14 @@ function Notes({dictionary, language}) {
         setHiddenList(false);
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       setMessage(dictionary[language].dashboard_error);
     }
   };
 
   const handleDeleteNote = async (e) => {
     const id = e.target.id;
-    console.log(id);
+    //console.log(id);
     const endpoint = `note/${id}`;
     setMessage(
       <div className="lds-ellipsis">
@@ -116,13 +115,11 @@ function Notes({dictionary, language}) {
         <div></div>
       </div>
     );
-    console.log(id);
 
     try {
       const response = await deleteData(endpoint);
       setMessage(dictionary[language].dashboard_success_delete);
-      console.log("response", response);
-      //setDataNotes([...dataNotes, response]);
+
       setDataNotes((prevDataNotes) =>
         prevDataNotes.filter((note) => note._id !== id)
       );
@@ -138,17 +135,17 @@ function Notes({dictionary, language}) {
     }
   };
   useEffect(() => {
-    console.log(message, dataNotes);
+    //console.log(message, dataNotes);
   }, [id, message, dataNotes]);
 
   useEffect(() => {
     fetchNotes();
-    console.log(note);
+    //console.log(note);
   }, [id, note]);
 
   useEffect(() => {}, [hiddenList]);
   useEffect(() => {
-    console.log(form);
+    //console.log(form);
   }, [form]);
 
   return (

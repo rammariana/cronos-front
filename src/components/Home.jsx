@@ -24,7 +24,7 @@ function Home() {
   const handleMouseMove = (e) => {
     const containerWidth = e.target.offsetWidth;
     const mouseX = e.nativeEvent.offsetX;
-    console.log(e.target.offsetX);
+    //console.log(e.target.offsetX);
     if (mouseX < containerWidth / 2 - 20) {
       setMouseOver(true);
     } else if (mouseX > containerWidth / 2 + 20) {
