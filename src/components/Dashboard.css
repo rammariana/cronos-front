@@ -135,12 +135,7 @@
   justify-content: space-around;
   width: 5rem;
 }
-@media screen and (min-width: 600px) {
-  .task-icons {
-    width: 12rem;
-  }
-  
-}
+
 .task div p {
   text-overflow: ellipsis;
   width: 10rem;
@@ -323,6 +318,12 @@
   z-index: 2;
 }
 @media screen and (min-width: 600px) {
+  .task-icons {
+    width: 12rem;
+  }
+  .screen {
+  justify-content: center;
+  }
   .nav-tools {
     right: 1rem;
   } 
@@ -333,6 +334,7 @@
     margin-bottom: 2.5rem;
   }
 }
+
 
 /*
 <i class="bi bi-play-fill"></i> // play
