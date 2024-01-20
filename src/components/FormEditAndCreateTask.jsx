@@ -5,15 +5,22 @@ import "./FormEditAndCreateTask.css";
 
 function FormEditAndCreateTask({task}) {
   const [dataTask, setDataTask] = useState([]);
+  const [disabled, setDisabled] = useState('available');
   const [formMessage, setFormMessage] = useState('');
   const { dictionary, language } = useContext(Language);
   const { id } = useContext(Auth);
   const { appcolor } = useContext(Color);
   const [formTask, setFormTask] = useState({
     task_name: task && task.task_name ? task.task_name : "",
-    task_days: task && task.task_days ? task.task_days : dictionary[language].dashboard_monday,
+    task_days:
+      task && task.task_days
+        ? task.task_days
+        : dictionary[language].dashboard_monday,
     task_hour: task && task.task_hour ? task.task_hour : "",
-    task_priority: task && task.task_priority ? task.task_priority : dictionary[language].form_input_placeholder_priority,
+    task_priority:
+      task && task.task_priority
+        ? task.task_priority
+        : dictionary[language].form_input_placeholder_priority,
   });
 
   const taskChange = (e) => {
@@ -34,6 +41,7 @@ function FormEditAndCreateTask({task}) {
         <div></div>
       </div>
     );
+    setDisabled('disabled')
 
     if (task && task._id) {
       const endpoint = `task/${task._id}`;
@@ -53,11 +61,17 @@ function FormEditAndCreateTask({task}) {
         });
 
         setFormMessage(dictionary[language].dashboard_success);
-        setTimeout(() => setFormMessage(""), 1500);
+        setTimeout(() => {
+          setFormMessage("");
+          setDisabled('available')
+        }, 1500);
       } catch (err) {
         console.error(err);
         setFormMessage(dictionary[language].dashboard_error);
-        setTimeout(() => setFormMessage(""), 1500);
+        setTimeout(() => {
+          setFormMessage("");
+          setDisabled("available");
+        }, 1500);
       }
     } else {
       const endpoint = `user/${id._id}`;
@@ -69,6 +83,7 @@ function FormEditAndCreateTask({task}) {
           <div></div>
         </div>
       );
+      setDisabled('disabled')
       try {
         const data = formTask;
         const response = await addData(endpoint, data);
@@ -85,11 +100,17 @@ function FormEditAndCreateTask({task}) {
         });
 
         setFormMessage(dictionary[language].dashboard_success);
-        setTimeout(() => setFormMessage(""), 1500);
+        setTimeout(() => {
+          setFormMessage("");
+          setDisabled("available");
+        }, 1500);
       } catch (err) {
         console.error(err);
         setFormMessage(dictionary[language].dashboard_error);
-        setTimeout(() => setFormMessage(""), 1500);
+        setTimeout(() => {
+          setFormMessage("");
+          setDisabled("available");
+        }, 1500);
       }
     }
   };
@@ -167,7 +188,7 @@ function FormEditAndCreateTask({task}) {
             {dictionary[language].form_input_option_low}
           </option>
         </select>
-        <button type="submit">
+        <button type="submit" className={`${disabled}`}>
           {task && task._id
             ? dictionary[language].form_btn_update
             : dictionary[language].form_btn_create}

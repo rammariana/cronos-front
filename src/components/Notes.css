@@ -148,12 +148,9 @@ textarea {
   cursor: pointer;
   padding: var(--border-radius);
   color: var(--color-light);
-  /*
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  position: absolute;
-  top: -0.5rem;
-  right: -.5rem;
-  */
+}
+.disabled {
+  pointer-events: none;
+  opacity: 0; 
+  cursor: none;
 }

@@ -7,11 +7,12 @@ function Notes({dictionary, language}) {
   const { appcolor } = useContext(Color);
   //const { dictionary, language } = useContext(Auth);
   const { id } = useContext(Auth);
-  const [dataNotes, setDataNotes] = useState([])
+  const [dataNotes, setDataNotes] = useState([]);
   const [message, setMessage] = useState([]);
   const [note, setNote] = useState([]);
   const [hiddenList, setHiddenList] = useState(false);
   const [addNote, setAddNote] = useState(false);
+  const [disabled, setDisabled] = useState("available");
   const [form, setForm] = useState({
     note_title: "",
     note_description: "",
@@ -69,16 +70,17 @@ function Notes({dictionary, language}) {
         <div></div>
       </div>
     );
+    setDisabled("disabled");
     try {
       if (form.note_description === "" && form.note_title === "") {
         setMessage(dictionary[language].dashboard_empty_fields);
-        setTimeout(() => setMessage(""), 1000);
+        setTimeout(() => setMessage(""), 1500);
       } else if (form.note_description === "") {
         setMessage(dictionary[language].dashboard_empty_description);
-        setTimeout(() => setMessage(""), 1000);
+        setTimeout(() => setMessage(""), 1500);
       } else if (form.note_title === "") {
         setMessage(dictionary[language].dashboard_empty_title);
-        setTimeout(() => setMessage(""), 1000);
+        setTimeout(() => setMessage(""), 1500);
       } else {
         const data = form;
         const response = await addData(endpoint, data);
@@ -86,7 +88,8 @@ function Notes({dictionary, language}) {
 
         setTimeout(() => {
           setMessage("");
-        }, 1000);
+          setDisabled("available");
+        }, 1500);
 
         //setDataNotes(...dataNotes, response);
         setDataNotes([...dataNotes, response]);
@@ -100,6 +103,10 @@ function Notes({dictionary, language}) {
     } catch (err) {
       console.error(err);
       setMessage(dictionary[language].dashboard_error);
+      setTimeout(() => {
+        setMessage("");
+        setDisabled("available");
+      }, 1500);
     }
   };
 
@@ -115,6 +122,7 @@ function Notes({dictionary, language}) {
         <div></div>
       </div>
     );
+    setDisabled("disabled");
 
     try {
       const response = await deleteData(endpoint);
@@ -125,13 +133,15 @@ function Notes({dictionary, language}) {
       );
       setTimeout(() => {
         setMessage("");
-      }, 1000);
+        setDisabled("available");
+      }, 1500);
     } catch (err) {
       console.log(err);
       setMessage(dictionary[language].dashboard_error);
       setTimeout(() => {
         setMessage("");
-      }, 1000);
+        setDisabled("available");
+      }, 1500);
     }
   };
   useEffect(() => {
@@ -178,21 +188,10 @@ function Notes({dictionary, language}) {
                 dictionary[language].dashboard_input_placeholder_description
               }
             ></textarea>
-            {/**
-             * <input
-              type="text"
-              name="note_description"
-              id="note_description"
-              value={form.note_description}
-              onChange={handleChange}
-              placeholder={
-                dictionary[language].dashboard_input_placeholder_description
-              }
-            />
-             */}
+
             <div className="form-notes-btns">
               {/**POST */}
-              <button type="submit" className="send">
+              <button type="submit" className={`send ${disabled}`}>
                 {dictionary[language].dashboard_btn_send}
               </button>
               {/**Close form */}
@@ -247,10 +246,6 @@ function Notes({dictionary, language}) {
             </button>
           </div>
         )}
-
-        {/** Cuando se elija ver notas se vera una lista */}
-        {/** Cuando le de click a una nota esa seccion será una sola nota */}
-        {/** Cuando le de al boton esta seccion sera un form */}
       </section>
     </>
   );

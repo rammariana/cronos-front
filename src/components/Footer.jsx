@@ -22,7 +22,11 @@ function Footer() {
             >
               <i className="bi bi-github"></i>
             </Link>
-            <a href="mailto:marianasmatos1@example.com">
+            <a
+              href="mailto:marianasmatos1@gmail.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               <i className="bi bi-envelope-fill"></i>
             </a>
             <Link
